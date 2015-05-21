@@ -11,7 +11,7 @@ from subprocess import Popen, PIPE, STDOUT
 Cookie = ""
 grep_stdout=""
  
-if len(sys.argv) < 4:
+if len(sys.argv) < 3:
         sys.exit('Usage: %s Nombre Overflow Chaine a trouver' % sys.argv[0])
  
 # On lance le programme
